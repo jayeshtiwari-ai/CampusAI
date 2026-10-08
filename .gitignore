@@ -1,0 +1,60 @@
+# CampusAI - .gitignore
+
+# Environment Variables & Secrets (NEVER COMMIT)
+.env
+.env.local
+.env.*.local
+
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Generated Application Data & Databases (Local State)
+data/index/
+data/audio_cache/
+*.db
+*.sqlite3
+*.log
+
+# Real College Knowledge Base Documents (Excludes confidential documents)
+# Keeps folder structure and sample files tracked
+knowledge_base/*
+!knowledge_base/sample_*
+!knowledge_base/**/sample_*
+!knowledge_base/**/.gitkeep
+
+# Editor & IDE Configs
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Machine Learning & AI Model Checkpoints / Weights
+*.bin
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.gguf
+
+# Node.js / Kiosk Web UI (if applicable)
+node_modules/
+dist/
+build/
+.next/
