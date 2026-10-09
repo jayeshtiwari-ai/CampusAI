@@ -28,7 +28,7 @@ def fallback_keyword_routing(user_query: str) -> Dict[str, Any]:
     lang = detect_language(user_query)
 
     # Escalation / Personal case
-    if any(k in q_lower for k in ["mere marks", "my marks", "my score", "mera percentile", "cutoff clear"]):
+    if any(k in q_lower for k in ["mere marks", "my marks", "my score", "mera percentile", "cutoff clear", "मेरे अंक", "मेरे मार्क्स"]):
         return {
             "intent": "personal_case_escalation",
             "user_type": "visitor",
@@ -39,7 +39,7 @@ def fallback_keyword_routing(user_query: str) -> Dict[str, Any]:
         }
 
     # Navigation keywords
-    if any(k in q_lower for k in ["where is", "kahan", "kaise jayein", "directions", "location", "path", "map", "room", "hall", "lab"]):
+    if any(k in q_lower for k in ["where is", "kahan", "kaise jayein", "directions", "location", "path", "map", "room", "hall", "lab", "कहाँ", "कहां", "किधर", "मार्ग", "दिशा", "इमारत", "मजला", "कुठे"]):
         return {
             "intent": "navigation_inquiry",
             "user_type": "visitor",
@@ -50,10 +50,10 @@ def fallback_keyword_routing(user_query: str) -> Dict[str, Any]:
         }
 
     # Admission & Fee keywords
-    if any(k in q_lower for k in ["fee", "fees", "tuition", "admission", "dakhila", "eligibility", "documents", "cutoff", "scholarship"]):
+    if any(k in q_lower for k in ["fee", "fees", "tuition", "admission", "dakhila", "eligibility", "documents", "cutoff", "scholarship", "प्रवेश", "फीस", "शुल्क", "पात्रता", "दाखिला", "छात्रवृत्ति"]):
         return {
             "intent": "admission_fee_inquiry",
-            "user_type": "parent" if "fees" in q_lower or "fee" in q_lower else "visitor",
+            "user_type": "parent" if any(k in q_lower for k in ["fees", "fee", "फीस", "शुल्क"]) else "visitor",
             "agent": "admission",
             "language": lang,
             "entities": {},
@@ -61,7 +61,7 @@ def fallback_keyword_routing(user_query: str) -> Dict[str, Any]:
         }
 
     # Faculty & Room Booking keywords
-    if any(k in q_lower for k in ["hod", "professor", "dr.", "cabin", "room free", "hall free", "meeting"]):
+    if any(k in q_lower for k in ["hod", "professor", "dr.", "cabin", "room free", "hall free", "meeting", "प्राध्यापक", "प्रोफेसर", "केबिन", "विभाग प्रमुख"]):
         return {
             "intent": "faculty_room_inquiry",
             "user_type": "faculty",
@@ -72,7 +72,7 @@ def fallback_keyword_routing(user_query: str) -> Dict[str, Any]:
         }
 
     # Student Timetable / Exam keywords
-    if any(k in q_lower for k in ["timetable", "exam", "schedule", "test", "class", "lecture", "hall ticket"]):
+    if any(k in q_lower for k in ["timetable", "exam", "schedule", "test", "class", "lecture", "hall ticket", "समयसारणी", "टाइमटेबल", "परीक्षा", "क्लास"]):
         return {
             "intent": "student_schedule_inquiry",
             "user_type": "student",

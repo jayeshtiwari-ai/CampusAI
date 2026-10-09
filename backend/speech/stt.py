@@ -29,7 +29,8 @@ HALLUCINATION_PATTERNS = [
 # Hinglish & College Context Hint Prompt for Whisper
 STT_PROMPT_HINT = (
     "CampusAI college reception conversation. Multilingual English, Hindi, Marathi, Hinglish. "
-    "Keywords: admission, fees, hostel, timetable, exam, cutoff, eligibility, department, seat, documents."
+    "Keywords: admission, fees, hostel, timetable, exam, cutoff, eligibility, department, seat, documents, "
+    "प्रवेश, फीस, दाखिला, पात्रता, कटऑफ, समयसारणी, परीक्षा, विभाग, छात्रावास, शुल्क।"
 )
 
 

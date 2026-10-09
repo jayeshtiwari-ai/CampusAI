@@ -196,6 +196,12 @@ def voice_loop_turn() -> bool:
 
 def main() -> None:
     """Main terminal voice loop application launcher."""
+    if hasattr(sys.stdout, "reconfigure"):
+        try:
+            sys.stdout.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
+
     print_voice_banner()
 
     # 1. Play startup welcome greeting in English (cached)
